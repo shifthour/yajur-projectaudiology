@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confidential Multi-Clinic Audiology Platform | Investor Overview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: { DEFAULT: '#E8533F', light: '#FF7A6A', dark: '#C43A28' },
+        surface: { DEFAULT: '#0A0F1C', card: '#111827', elevated: '#1A2235' },
+        accent: { blue: '#3B82F6', green: '#10B981', amber: '#F59E0B' }
+      },
+      fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+    }
+  }
+}
+</script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #0A0F1C; color: #E2E8F0; overflow-x: hidden; }
+.glass { background: rgba(17, 24, 39, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(232, 83, 63, 0.12); }
+.glass-hover:hover { background: rgba(232, 83, 63, 0.08); border-color: rgba(232, 83, 63, 0.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(232, 83, 63, 0.15); }
+.gradient-text { background: linear-gradient(135deg, #E8533F, #FF7A6A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.gradient-border { position: relative; }
+.gradient-border::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(135deg, #E8533F, #FF7A6A); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,83,63,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+dialog { border: none; background: transparent; max-width: 90vw; width: 560px; }
+dialog::backdrop { background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); }
+dialog .modal-content { background: #111827; border: 1px solid rgba(232,83,63,0.2); border-radius: 16px; padding: 2rem; color: #E2E8F0; }
+.chart-container { position: relative; width: 100%; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0F1C; }
+::-webkit-scrollbar-thumb { background: #E8533F; border-radius: 3px; }
+.metric-card { cursor: pointer; transition: all 0.3s ease; }
+.section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(232,83,63,0.3), transparent); }
+@keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(232,83,63,0.1); } 50% { box-shadow: 0 0 40px rgba(232,83,63,0.25); } }
+.pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.nav-scrolled { background: rgba(10,15,28,0.95) !important; backdrop-filter: blur(20px); box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:transparent;">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <img src="data:image/png;base64,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" alt="Logo" style="height:40px;width:auto;object-fit:contain">
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#metrics" class="text-sm text-gray-400 hover:text-brand transition-colors">Metrics</a>
+      <a href="#highlights" class="text-sm text-gray-400 hover:text-brand transition-colors">Highlights</a>
+      <a href="#financials" class="text-sm text-gray-400 hover:text-brand transition-colors">Financials</a>
+      <a href="#market" class="text-sm text-gray-400 hover:text-brand transition-colors">Market</a>
+      <a href="#platform" class="text-sm text-gray-400 hover:text-brand transition-colors">Platform</a>
+      <a href="#growth" class="text-sm text-gray-400 hover:text-brand transition-colors">Growth</a>
+      <a href="#cta" class="px-5 py-2 bg-brand text-white text-sm font-semibold rounded-lg hover:bg-brand-dark transition-colors">Contact Advisor</a>
+    </div>
+    <button id="hamburger" class="md:hidden text-white" onclick="toggleMobile()">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-surface-card border-t border-gray-800 px-6 py-4">
+    <a href="#metrics" class="block py-2 text-gray-400 hover:text-brand" onclick="toggleMobile()">Metrics</a>
+    <a href="#highlights" class="block py-2 text-gray-400 hover:text-brand" onclick="toggleMobile()">Highlights</a>
+    <a href="#financials" class="block py-2 text-gray-400 hover:text-brand" onclick="toggleMobile()">Financials</a>
+    <a href="#market" class="block py-2 text-gray-400 hover:text-brand" onclick="toggleMobile()">Market</a>
+    <a href="#platform" class="block py-2 text-gray-400 hover:text-brand" onclick="toggleMobile()">Platform</a>
+    <a href="#growth" class="block py-2 text-gray-400 hover:text-brand" onclick="toggleMobile()">Growth</a>
+    <a href="#cta" class="block py-3 mt-2 text-center bg-brand text-white rounded-lg font-semibold" onclick="toggleMobile()">Contact Advisor</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+  <div class="hero-glow" style="top:-200px;right:-100px;"></div>
+  <div class="hero-glow" style="bottom:-300px;left:-200px;opacity:0.5;"></div>
+  <div class="max-w-7xl mx-auto px-6 w-full py-20">
+    <div class="max-w-4xl">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-brand mb-8 hero-fade">
+        <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+        Healthcare / Audiology &nbsp;|&nbsp; Western Canada
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 hero-fade">
+        Highly Profitable<br>
+        <span class="gradient-text">Multi-Clinic Audiology</span><br>
+        Platform
+      </h1>
+      <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed hero-fade">
+        True North M&A is proud to present an opportunity to acquire a premier independent group of clinics operating in Western Canada with 6 years of record revenue growth and a well established multi-decade operating history.
+      </p>
+    </div>
+
+    <!-- Hero Metrics Bar -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 hero-fade">
+      <div class="metric-card glass rounded-2xl p-6 text-center glass-hover pulse-glow" onclick="openModal('heroM0')">
+        <div class="flex justify-center mb-3">
+          
+        </div>
+        <div class="text-3xl md:text-4xl font-black text-white counter" data-target="7.0" data-prefix="$" data-suffix="M">$0</div>
+        <div class="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wider">FY2025 Revenue</div>
+      </div>
+      <div class="metric-card glass rounded-2xl p-6 text-center glass-hover pulse-glow" onclick="openModal('heroM1')">
+        <div class="flex justify-center mb-3">
+          <svg class="w-8 h-8 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        </div>
+        <div class="text-3xl md:text-4xl font-black text-white counter" data-target="2.0" data-prefix="$" data-suffix="M">$0</div>
+        <div class="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wider">Adj. EBITDA</div>
+      </div>
+      <div class="metric-card glass rounded-2xl p-6 text-center glass-hover pulse-glow" onclick="openModal('heroM2')">
+        <div class="flex justify-center mb-3">
+          <svg class="w-8 h-8 text-accent-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <div class="text-3xl md:text-4xl font-black text-white counter" data-target="76" data-suffix="%">0%</div>
+        <div class="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wider">Gross Margin</div>
+      </div>
+      <div class="metric-card glass rounded-2xl p-6 text-center glass-hover pulse-glow" onclick="openModal('heroM3')">
+        <div class="flex justify-center mb-3">
+          <svg class="w-8 h-8 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="text-3xl md:text-4xl font-black text-white counter" data-target="7" data-suffix="%">0%</div>
+        <div class="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wider">Revenue CAGR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hero Modals -->
+<dialog id="heroM0"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">FY2025 Revenue</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-2">$7,001,054</div><p class="text-gray-400">6th consecutive record year. Revenue grew from $5.4M in FY2022 to $7.0M in FY2025, representing a 7% compound annual growth rate. All figures in CAD.</p></div></dialog>
+<dialog id="heroM1"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Adjusted EBITDA</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-2">$1,961,686</div><p class="text-gray-400">~28% EBITDA margin in FY2025. EBITDA grew from $1.39M (25.5% margin) in FY2022 to $2.03M (30.0% margin) in FY2024, demonstrating margin expansion alongside revenue growth.</p></div></dialog>
+<dialog id="heroM2"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Gross Margin</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-2">77.60%</div><p class="text-gray-400">FY2025 gross margin of 77.60%, with a 76% average since FY2022. High margins reflect favorable product economics in the audiology sector and strong pricing power.</p></div></dialog>
+<dialog id="heroM3"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Revenue CAGR</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-2">7%</div><p class="text-gray-400">FY2020–FY2025 compound annual growth rate. Consistent organic growth across 6 consecutive record years, demonstrating strong demand fundamentals and operational execution.</p></div></dialog>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Key Metrics Section -->
+<section id="metrics" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 anim-up">
+      <span class="text-brand text-sm font-semibold uppercase tracking-widest">Performance Overview</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white mt-3">Key Metrics</h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Metric Cards -->
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('km0')">
+        <div class="flex items-center gap-3 mb-4"><span class="text-accent-green text-lg">&#9650;</span><span class="text-xs font-semibold text-accent-green uppercase tracking-wider">Trending Up</span></div>
+        <div class="text-3xl font-black text-white mb-1 counter" data-target="7001054" data-prefix="$" data-format="currency">$0</div>
+        <div class="text-sm font-semibold text-gray-300 mb-2">FY2025 Revenue</div>
+        <p class="text-xs text-gray-500">6th consecutive record year</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('km1')">
+        <div class="flex items-center gap-3 mb-4"><span class="text-accent-green text-lg">&#9650;</span><span class="text-xs font-semibold text-accent-green uppercase tracking-wider">Trending Up</span></div>
+        <div class="text-3xl font-black text-white mb-1 counter" data-target="1961686" data-prefix="$" data-format="currency">$0</div>
+        <div class="text-sm font-semibold text-gray-300 mb-2">Adj. EBITDA</div>
+        <p class="text-xs text-gray-500">~28% margin</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('km2')">
+        <div class="flex items-center gap-3 mb-4"><span class="text-accent-green text-lg">&#9650;</span><span class="text-xs font-semibold text-accent-green uppercase tracking-wider">Trending Up</span></div>
+        <div class="text-3xl font-black text-white mb-1">77.60%</div>
+        <div class="text-sm font-semibold text-gray-300 mb-2">Gross Margin</div>
+        <p class="text-xs text-gray-500">FY2025 gross margin</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('km3')">
+        <div class="flex items-center gap-3 mb-4"><span class="text-accent-blue text-lg">&#9644;</span><span class="text-xs font-semibold text-accent-blue uppercase tracking-wider">Stable</span></div>
+        <div class="text-3xl font-black text-white mb-1">7%</div>
+        <div class="text-sm font-semibold text-gray-300 mb-2">Revenue CAGR</div>
+        <p class="text-xs text-gray-500">FY2020–FY2025 compound annual growth rate</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('km4')">
+        <div class="flex items-center gap-3 mb-4"><span class="text-accent-blue text-lg">&#9644;</span><span class="text-xs font-semibold text-accent-blue uppercase tracking-wider">Stable</span></div>
+        <div class="text-3xl font-black text-white mb-1">~80%</div>
+        <div class="text-sm font-semibold text-gray-300 mb-2">Capacity Utilization</div>
+        <p class="text-xs text-gray-500">Clinics currently operating at ~80% capacity</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('km5')">
+        <div class="flex items-center gap-3 mb-4"><span class="text-accent-green text-lg">&#9650;</span><span class="text-xs font-semibold text-accent-green uppercase tracking-wider">Trending Up</span></div>
+        <div class="text-3xl font-black text-white mb-1">~8.1M</div>
+        <div class="text-sm font-semibold text-gray-300 mb-2">Canadians Aged 65+</div>
+        <p class="text-xs text-gray-500">Projected to grow to ~9.3M by 2030 and ~10.5M by 2040</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Metric Modals -->
+<dialog id="km0"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">FY2025 Revenue</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-3">$7,001,054 <span class="text-sm text-accent-green font-semibold">CAD</span></div><p class="text-gray-400 mb-3">6th consecutive record year. The company has demonstrated consistent organic top-line growth, with revenue rising from $5.45M in FY2022 to over $7.0M in FY2025.</p><div class="text-sm text-gray-500">FY2022: $5.45M → FY2023: $6.20M → FY2024: $6.79M → FY2025: $7.00M</div></div></dialog>
+<dialog id="km1"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Adjusted EBITDA</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-3">$1,961,686</div><p class="text-gray-400 mb-3">~28% EBITDA margin. Margin expanded from 25.5% in FY2022 to a peak of 30.0% in FY2024.</p><div class="text-sm text-gray-500">FY2022: $1.39M (25.5%) → FY2023: $1.64M (26.5%) → FY2024: $2.03M (30.0%) → FY2025: $1.96M (28.0%)</div></div></dialog>
+<dialog id="km2"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Gross Margin</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-3">77.60%</div><p class="text-gray-400">FY2025 gross margin, with a 76% average since FY2022. Ranges: FY2022 (76.50%) → FY2023 (73.50%) → FY2024 (74.80%) → FY2025 (77.60%). Projected: FY2026F (73.18%), FY2027P (76.00%).</p></div></dialog>
+<dialog id="km3"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Revenue CAGR</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-3">7%</div><p class="text-gray-400">FY2020–FY2025 compound annual growth rate. Growth rates by year: FY2023 (+13.8%), FY2024 (+9.6%), FY2025 (+3.1%). Projected: FY2026F ($7.68M), FY2027P ($8.06M).</p></div></dialog>
+<dialog id="km4"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Capacity Utilization</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-3">~80%</div><p class="text-gray-400">Clinics are currently operating at approximately 80% capacity, providing near-term upside through extended hours and additional practitioners without significant capital expenditure.</p></div></dialog>
+<dialog id="km5"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Canadians Aged 65+</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-3">~8.1M</div><p class="text-gray-400">Projected to grow to ~9.3M by 2030 and ~10.5M by 2040. ~65% of individuals aged 70–79 experience hearing loss. Significant underdiagnosis supports long-term demand growth.</p></div></dialog>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Investment Highlights -->
+<section id="highlights" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 anim-up">
+      <span class="text-brand text-sm font-semibold uppercase tracking-widest">Investment Thesis</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white mt-3">Investment Highlights</h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Highlight 1 -->
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('ih0')">
+        <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center mb-5">
+          
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">6 Consecutive Record Revenue Years</h3>
+        <div class="text-2xl font-black gradient-text mb-3">$7.0M FY2025 Revenue</div>
+        <ul class="space-y-2">
+          <li class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>Revenue grew from $5.4M to $7.0M between FY2022–FY2025</li>
+          <li class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>7% CAGR from FY2020–FY2025</li>
+        </ul>
+      </div>
+      <!-- Highlight 2 -->
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('ih1')">
+        <div class="w-12 h-12 rounded-xl bg-accent-green/10 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">Strong Profitability</h3>
+        <div class="text-2xl font-black gradient-text mb-3">$2.0M Adj. EBITDA</div>
+        <ul class="space-y-2">
+          <li class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>~28% Adj. EBITDA margin</li>
+          <li class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>76% average gross margin since FY2022</li>
+        </ul>
+      </div>
+      <!-- Highlight 3 -->
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('ih2')">
+        <div class="w-12 h-12 rounded-xl bg-accent-blue/10 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">Established Multi-Brand Platform</h3>
+        <div class="text-2xl font-black gradient-text mb-3">Multi-decade operating history</div>
+        <ul class="space-y-2">
+          <li class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>Multi-clinic footprint across strategic markets</li>
+          <li class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>Strong local market presence in Western Canada</li>
+          <li class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>Loyal customer base with long-standing relationships</li>
+          <li class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>Experienced team in place to support day-to-day operations</li>
+        </ul>
+      </div>
+      <!-- Highlight 4 -->
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('ih3')">
+        <div class="w-12 h-12 rounded-xl bg-accent-amber/10 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-accent-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">Recurring Revenue Model</h3>
+        <ul class="space-y-2 mt-4">
+          <li class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>Recurring revenue driven by predictable replacement cycles and ongoing service needs</li>
+        </ul>
+      </div>
+      <!-- Highlight 5 -->
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up md:col-span-2 lg:col-span-2" onclick="openModal('ih4')">
+        <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center mb-5">
+          
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">Favorable Market Tailwinds</h3>
+        <div class="text-2xl font-black gradient-text mb-3">~8.1M Canadians aged 65+</div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>~8.1M Canadians aged 65+, growing to ~10.5M by 2040</div>
+          <div class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>~65% hearing loss prevalence in ages 70–79</div>
+          <div class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>Significant underdiagnosis supports long-term demand</div>
+          <div class="text-sm text-gray-400 flex items-start gap-2"><span class="text-brand mt-1">&#8226;</span>Government provincial programs subsidize hearing aid purchases</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Highlight Modals -->
+<dialog id="ih0"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">6 Consecutive Record Revenue Years</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400 mb-3">Revenue grew from $5.4M to $7.0M between FY2022–FY2025 with a 7% CAGR from FY2020–FY2025. Year-over-year growth: FY2023 (+13.8%), FY2024 (+9.6%), FY2025 (+3.1%).</p><div class="glass rounded-lg p-4 mt-3"><div class="text-sm text-gray-500">Projections: FY2026F $7.68M | FY2027P $8.06M</div></div></div></dialog>
+<dialog id="ih1"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Strong Profitability</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400 mb-3">~28% Adj. EBITDA margin with $2.0M in FY2025. 76% average gross margin since FY2022. EBITDA margins expanded from 25.5% to 30.0% between FY2022–FY2024.</p><div class="glass rounded-lg p-4 mt-3"><div class="text-sm text-gray-500">Projections: FY2026F EBITDA $2.19M | FY2027P EBITDA $2.12M</div></div></div></dialog>
+<dialog id="ih2"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Established Multi-Brand Platform</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Multi-clinic footprint across strategic markets in Western Canada. Strong local market presence with multi-decade operating history, loyal customer base with long-standing relationships, and an experienced team in place to support day-to-day operations.</p></div></dialog>
+<dialog id="ih3"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Recurring Revenue Model</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Revenue is driven by predictable replacement cycles and ongoing service needs, creating a recurring revenue profile with high visibility. Hearing aids typically require replacement every 3–5 years, creating a natural recurring purchase cycle from the existing customer base.</p></div></dialog>
+<dialog id="ih4"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Favorable Market Tailwinds</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400 mb-3">~8.1M Canadians aged 65+, projected to grow to ~9.3M by 2030 and ~10.5M by 2040. ~65% of individuals aged 70–79 experience hearing loss. Significant underdiagnosis means a large portion of hearing loss remains untreated, supporting long-term demand growth.</p><p class="text-gray-400">Provincial government programs subsidize hearing aid purchases, increasing accessibility and reducing price sensitivity.</p></div></dialog>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Financials Section -->
+<section id="financials" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 anim-up">
+      <span class="text-brand text-sm font-semibold uppercase tracking-widest">Financial Performance</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white mt-3">Financials</h2>
+      <p class="text-gray-400 mt-3 text-sm">All figures in CAD</p>
+    </div>
+
+    <!-- Dual Axis Chart: Revenue + EBITDA Margin -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      <div class="glass rounded-2xl p-8 anim-up">
+        <h3 class="text-lg font-bold text-white mb-6">Revenue & EBITDA Margin</h3>
+        <div class="chart-container" style="height:350px;">
+          <canvas id="dualAxisChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Gross Margin Chart -->
+      <div class="glass rounded-2xl p-8 anim-up">
+        <h3 class="text-lg font-bold text-white mb-6">Gross Margin Trend (%)</h3>
+        <div class="chart-container" style="height:350px;">
+          <canvas id="grossMarginChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Financial Table -->
+    <div class="glass rounded-2xl p-8 overflow-x-auto anim-up">
+      <h3 class="text-lg font-bold text-white mb-6">Historical & Projected Performance</h3>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-gray-700">
+            <th class="text-left py-3 px-4 text-gray-400 font-semibold">Period</th>
+            <th class="text-right py-3 px-4 text-gray-400 font-semibold">Revenue</th>
+            <th class="text-right py-3 px-4 text-gray-400 font-semibold">YoY Growth</th>
+            <th class="text-right py-3 px-4 text-gray-400 font-semibold">Adj. EBITDA</th>
+            <th class="text-right py-3 px-4 text-gray-400 font-semibold">EBITDA Margin</th>
+            <th class="text-right py-3 px-4 text-gray-400 font-semibold">Gross Margin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
+            <td class="py-3 px-4 text-white font-semibold">FY2022</td>
+            <td class="py-3 px-4 text-right text-gray-300">$5,447,162</td>
+            <td class="py-3 px-4 text-right text-gray-500">—</td>
+            <td class="py-3 px-4 text-right text-gray-300">$1,387,673</td>
+            <td class="py-3 px-4 text-right text-gray-300">25.5%</td>
+            <td class="py-3 px-4 text-right text-gray-300">76.50%</td>
+          </tr>
+          <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
+            <td class="py-3 px-4 text-white font-semibold">FY2023</td>
+            <td class="py-3 px-4 text-right text-gray-300">$6,198,638</td>
+            <td class="py-3 px-4 text-right text-accent-green">+13.8%</td>
+            <td class="py-3 px-4 text-right text-gray-300">$1,642,486</td>
+            <td class="py-3 px-4 text-right text-gray-300">26.5%</td>
+            <td class="py-3 px-4 text-right text-gray-300">73.50%</td>
+          </tr>
+          <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
+            <td class="py-3 px-4 text-white font-semibold">FY2024</td>
+            <td class="py-3 px-4 text-right text-gray-300">$6,790,737</td>
+            <td class="py-3 px-4 text-right text-accent-green">+9.6%</td>
+            <td class="py-3 px-4 text-right text-gray-300">$2,034,599</td>
+            <td class="py-3 px-4 text-right text-gray-300">30.0%</td>
+            <td class="py-3 px-4 text-right text-gray-300">74.80%</td>
+          </tr>
+          <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors bg-brand/5">
+            <td class="py-3 px-4 text-white font-bold">FY2025</td>
+            <td class="py-3 px-4 text-right text-white font-semibold">$7,001,054</td>
+            <td class="py-3 px-4 text-right text-accent-green">+3.1%</td>
+            <td class="py-3 px-4 text-right text-white font-semibold">$1,961,686</td>
+            <td class="py-3 px-4 text-right text-white font-semibold">28.0%</td>
+            <td class="py-3 px-4 text-right text-white font-semibold">77.60%</td>
+          </tr>
+          <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors opacity-75">
+            <td class="py-3 px-4 text-gray-400 font-semibold italic">FY2026F</td>
+            <td class="py-3 px-4 text-right text-gray-400 italic">$7,679,529</td>
+            <td class="py-3 px-4 text-right text-gray-400 italic">+9.7%</td>
+            <td class="py-3 px-4 text-right text-gray-400 italic">$2,189,968</td>
+            <td class="py-3 px-4 text-right text-gray-400 italic">28.5%</td>
+            <td class="py-3 px-4 text-right text-gray-400 italic">73.18%</td>
+          </tr>
+          <tr class="hover:bg-white/5 transition-colors opacity-75">
+            <td class="py-3 px-4 text-gray-400 font-semibold italic">FY2027P</td>
+            <td class="py-3 px-4 text-right text-gray-400 italic">$8,063,505</td>
+            <td class="py-3 px-4 text-right text-gray-400 italic">+5.0%</td>
+            <td class="py-3 px-4 text-right text-gray-400 italic">$2,118,905</td>
+            <td class="py-3 px-4 text-right text-gray-400 italic">26.3%</td>
+            <td class="py-3 px-4 text-right text-gray-400 italic">76.00%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Market Opportunity -->
+<section id="market" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 anim-up">
+      <span class="text-brand text-sm font-semibold uppercase tracking-widest">Market Landscape</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white mt-3">Market Opportunity</h2>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="anim-up">
+        <p class="text-gray-400 leading-relaxed text-lg mb-8">Aging Canadian demographics with ~8.1M citizens aged 65+ projected to grow to ~9.3M by 2030 and ~10.5M by 2040. ~65% of individuals aged 70–79 experience hearing loss.</p>
+        <p class="text-gray-400 leading-relaxed mb-8">Significant underdiagnosis means a large portion of hearing loss remains untreated, supporting long-term demand growth. Provincial government programs subsidize hearing aid purchases, increasing accessibility and reducing price sensitivity.</p>
+
+        <div class="grid grid-cols-3 gap-4">
+          <div class="metric-card glass rounded-xl p-5 text-center glass-hover" onclick="openModal('mkt0')">
+            <div class="text-2xl font-black text-white">~8.1M</div>
+            <div class="text-xs text-gray-400 mt-1">Current 65+</div>
+          </div>
+          <div class="metric-card glass rounded-xl p-5 text-center glass-hover" onclick="openModal('mkt1')">
+            <div class="text-2xl font-black text-white">~9.3M</div>
+            <div class="text-xs text-gray-400 mt-1">By 2030</div>
+          </div>
+          <div class="metric-card glass rounded-xl p-5 text-center glass-hover" onclick="openModal('mkt2')">
+            <div class="text-2xl font-black text-white">~10.5M</div>
+            <div class="text-xs text-gray-400 mt-1">By 2040</div>
+          </div>
+        </div>
+      </div>
+      <div class="glass rounded-2xl p-8 anim-up">
+        <h3 class="text-lg font-bold text-white mb-6">Canadian Population Aged 65+ Projections</h3>
+        <div class="chart-container" style="height:320px;">
+          <canvas id="demographicChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Market Modals -->
+<dialog id="mkt0"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Current 65+ Population</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-3">~8.1 Million</div><p class="text-gray-400">Approximately 8.1 million Canadians are currently aged 65 and over, representing a large and growing addressable market for audiology services. ~65% of individuals aged 70–79 experience hearing loss.</p></div></dialog>
+<dialog id="mkt1"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">2030 Projection</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-3">~9.3 Million</div><p class="text-gray-400">The 65+ population is expected to reach ~9.3M by 2030, representing a ~15% increase from current levels and significantly expanding the addressable market for hearing healthcare.</p></div></dialog>
+<dialog id="mkt2"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">2040 Projection</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><div class="text-4xl font-black text-white mb-3">~10.5 Million</div><p class="text-gray-400">By 2040, the 65+ population is projected to reach ~10.5M, a ~30% increase from today. Combined with significant underdiagnosis, this supports strong long-term demand for audiology services.</p></div></dialog>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Platform & Competitive Advantages -->
+<section id="platform" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 anim-up">
+      <span class="text-brand text-sm font-semibold uppercase tracking-widest">Platform Overview</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white mt-3">Platform & Competitive Edge</h2>
+    </div>
+
+    <!-- Product Features -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('pf0')">
+        <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center mb-4">
+          
+        </div>
+        <h4 class="text-base font-bold text-white mb-2">Multi-Brand Audiology Platform</h4>
+        <p class="text-sm text-gray-400">Established multi-brand platform with a long operating history</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('pf1')">
+        <div class="w-10 h-10 rounded-lg bg-accent-blue/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h4 class="text-base font-bold text-white mb-2">Multi-Clinic Footprint</h4>
+        <p class="text-sm text-gray-400">Multi-clinic footprint across strategic markets in Western Canada</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('pf2')">
+        <div class="w-10 h-10 rounded-lg bg-accent-green/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        </div>
+        <h4 class="text-base font-bold text-white mb-2">Recurring Revenue Model</h4>
+        <p class="text-sm text-gray-400">Recurring revenue driven by predictable replacement cycles and ongoing service needs</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('pf3')">
+        <div class="w-10 h-10 rounded-lg bg-accent-amber/10 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-accent-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <h4 class="text-base font-bold text-white mb-2">Loyal Customer Base</h4>
+        <p class="text-sm text-gray-400">Loyal customer base with long-standing relationships</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('pf4')">
+        <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center mb-4">
+          
+        </div>
+        <h4 class="text-base font-bold text-white mb-2">Experienced Operations Team</h4>
+        <p class="text-sm text-gray-400">Experienced team in place to support day-to-day operations</p>
+      </div>
+    </div>
+
+    <!-- Product Feature Modals -->
+    <dialog id="pf0"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Multi-Brand Audiology Platform</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">An established multi-brand platform with a long operating history that spans multiple decades. The multi-brand approach provides diversification and broad market coverage across Western Canada's audiology sector.</p></div></dialog>
+    <dialog id="pf1"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Multi-Clinic Footprint</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Multi-clinic footprint across strategic markets in Western Canada. The geographic spread provides both resilience and a strong base for further expansion into adjacent markets.</p></div></dialog>
+    <dialog id="pf2"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Recurring Revenue Model</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Recurring revenue is driven by predictable replacement cycles (hearing aids typically replaced every 3–5 years) and ongoing service needs including fitting adjustments, maintenance, and follow-up appointments.</p></div></dialog>
+    <dialog id="pf3"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Loyal Customer Base</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Long-standing customer relationships built over decades of operation. Customer loyalty in audiology is high due to the personalized nature of hearing care and the trust-based relationship between audiologists and patients.</p></div></dialog>
+    <dialog id="pf4"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Experienced Operations Team</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Experienced team in place to support day-to-day operations, providing continuity and operational stability for a new owner. The team's deep industry knowledge and established processes reduce transition risk.</p></div></dialog>
+
+    <!-- Competitive Advantages -->
+    <div class="anim-up">
+      <h3 class="text-2xl font-bold text-white mb-8 text-center">Competitive Advantages</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="metric-card glass rounded-2xl p-8 glass-hover" onclick="openModal('ca0')">
+          <h4 class="text-base font-bold text-white mb-2">Established Market Presence</h4>
+          <p class="text-sm text-gray-400 mb-3">Strong local market presence in Western Canada with multi-decade operating history</p>
+          <div class="text-xs text-brand font-semibold">Evidence: 6 consecutive record revenue years</div>
+        </div>
+        <div class="metric-card glass rounded-2xl p-8 glass-hover" onclick="openModal('ca1')">
+          <h4 class="text-base font-bold text-white mb-2">High Margins</h4>
+          <p class="text-sm text-gray-400 mb-3">76% average gross margin and ~28% EBITDA margin demonstrate strong unit economics</p>
+          <div class="text-xs text-brand font-semibold">Evidence: 76% GM avg since FY2022, $2.0M EBITDA</div>
+        </div>
+        <div class="metric-card glass rounded-2xl p-8 glass-hover" onclick="openModal('ca2')">
+          <h4 class="text-base font-bold text-white mb-2">Recurring Revenue</h4>
+          <p class="text-sm text-gray-400 mb-3">Predictable replacement cycles and ongoing service needs drive recurring revenue</p>
+          <div class="text-xs text-brand font-semibold">Evidence: Consistent growth FY2020–FY2025</div>
+        </div>
+        <div class="metric-card glass rounded-2xl p-8 glass-hover" onclick="openModal('ca3')">
+          <h4 class="text-base font-bold text-white mb-2">Fragmented Market for Roll-Up</h4>
+          <p class="text-sm text-gray-400 mb-3">Highly fragmented market with numerous independent operators presents clear acquisition opportunity</p>
+          <div class="text-xs text-brand font-semibold">Evidence: Multiple independents in Western Canada</div>
+        </div>
+        <div class="metric-card glass rounded-2xl p-8 glass-hover" onclick="openModal('ca4')">
+          <h4 class="text-base font-bold text-white mb-2">Government-Supported Demand</h4>
+          <p class="text-sm text-gray-400 mb-3">Provincial programs subsidize hearing aid purchases, reducing price sensitivity</p>
+          <div class="text-xs text-brand font-semibold">Evidence: Funding programs across provinces</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CA Modals -->
+<dialog id="ca0"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Established Market Presence</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Strong local market presence in Western Canada with multi-decade operating history. Six consecutive record revenue years demonstrate consistent demand and market position strength.</p></div></dialog>
+<dialog id="ca1"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">High Margins</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">76% average gross margin since FY2022 and ~28% EBITDA margin ($2.0M) demonstrate strong unit economics. The audiology sector benefits from high-value products, professional service delivery, and limited price competition from online channels.</p></div></dialog>
+<dialog id="ca2"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Recurring Revenue</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Predictable replacement cycles (every 3–5 years) and ongoing service needs create natural recurring revenue streams. Evidence: consistent revenue growth from FY2020–FY2025 across 6 record years.</p></div></dialog>
+<dialog id="ca3"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Fragmented Market — Roll-Up Opportunity</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">The Canadian audiology market is highly fragmented with numerous independent operators, presenting a clear acquisition and roll-up opportunity. The platform's existing multi-brand infrastructure is well-positioned to integrate additional clinics efficiently.</p></div></dialog>
+<dialog id="ca4"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Government-Supported Demand</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Provincial government programs across Canada subsidize hearing aid purchases, increasing accessibility and reducing price sensitivity for end consumers. This government support creates a more stable demand environment compared to purely consumer-funded healthcare segments.</p></div></dialog>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Growth Levers -->
+<section id="growth" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 anim-up">
+      <span class="text-brand text-sm font-semibold uppercase tracking-widest">Value Creation</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white mt-3">Growth Levers</h2>
+    </div>
+
+    <!-- Traction Milestones -->
+    <div class="glass rounded-2xl p-8 mb-12 anim-up">
+      <h3 class="text-lg font-bold text-white mb-6">Key Milestones</h3>
+      <div class="flex flex-wrap gap-4">
+        <div class="flex items-center gap-3 bg-brand/10 rounded-full px-5 py-2.5">
+          <span class="w-2 h-2 rounded-full bg-brand"></span>
+          <span class="text-sm text-gray-300">6 consecutive years of record revenue</span>
+        </div>
+        <div class="flex items-center gap-3 bg-brand/10 rounded-full px-5 py-2.5">
+          <span class="w-2 h-2 rounded-full bg-brand"></span>
+          <span class="text-sm text-gray-300">Multi-decade operating history</span>
+        </div>
+        <div class="flex items-center gap-3 bg-brand/10 rounded-full px-5 py-2.5">
+          <span class="w-2 h-2 rounded-full bg-brand"></span>
+          <span class="text-sm text-gray-300">FY2025 revenue reached $7.0M</span>
+        </div>
+        <div class="flex items-center gap-3 bg-brand/10 rounded-full px-5 py-2.5">
+          <span class="w-2 h-2 rounded-full bg-brand"></span>
+          <span class="text-sm text-gray-300">Adj. EBITDA of $2.0M with ~28% margin</span>
+        </div>
+        <div class="flex items-center gap-3 bg-brand/10 rounded-full px-5 py-2.5">
+          <span class="w-2 h-2 rounded-full bg-brand"></span>
+          <span class="text-sm text-gray-300">76% average gross margin since FY2022</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Growth Lever Cards -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('gl0')">
+        <div class="text-4xl font-black gradient-text mb-4">01</div>
+        <h4 class="text-lg font-bold text-white mb-3">Capacity Expansion</h4>
+        <p class="text-sm text-gray-400">Clinics currently operating at ~80% capacity, providing near-term upside through extended hours and additional practitioners</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('gl1')">
+        <div class="text-4xl font-black gradient-text mb-4">02</div>
+        <h4 class="text-lg font-bold text-white mb-3">Clinic Acquisitions</h4>
+        <p class="text-sm text-gray-400">A highly fragmented market with numerous independent operators presents a clear roll-up opportunity</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('gl2')">
+        <div class="text-4xl font-black gradient-text mb-4">03</div>
+        <h4 class="text-lg font-bold text-white mb-3">Geographic Expansion</h4>
+        <p class="text-sm text-gray-400">Existing Western Canadian footprint provides a strong base for expansion into adjacent markets</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('gl3')">
+        <div class="text-4xl font-black gradient-text mb-4">04</div>
+        <h4 class="text-lg font-bold text-white mb-3">Brand & Operational Optimization</h4>
+        <p class="text-sm text-gray-400">Opportunity to streamline branding and enhance operational efficiencies across locations</p>
+      </div>
+      <div class="metric-card glass rounded-2xl p-8 glass-hover anim-up" onclick="openModal('gl4')">
+        <div class="text-4xl font-black gradient-text mb-4">05</div>
+        <h4 class="text-lg font-bold text-white mb-3">Brand Consolidation</h4>
+        <p class="text-sm text-gray-400">Unifying brands enhances scalability and recognition</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Growth Modals -->
+<dialog id="gl0"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Capacity Expansion</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Clinics are currently operating at ~80% capacity. Near-term upside can be realized through extended operating hours, hiring additional practitioners, and optimizing appointment scheduling — all without significant capital expenditure.</p></div></dialog>
+<dialog id="gl1"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Clinic Acquisitions (Roll-Up)</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">The Canadian audiology market is highly fragmented with numerous independent operators. The established multi-clinic platform is well-positioned to execute a roll-up strategy, acquiring independent clinics and integrating them onto the existing operational platform for immediate synergies.</p></div></dialog>
+<dialog id="gl2"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Geographic Expansion</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">The existing Western Canadian footprint provides a strong base for expansion into adjacent geographic markets, leveraging the established operational playbook and brand recognition.</p></div></dialog>
+<dialog id="gl3"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Brand & Operational Optimization</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Opportunity to streamline branding across the multi-brand platform and enhance operational efficiencies at each location through standardized processes, shared services, and technology investments.</p></div></dialog>
+<dialog id="gl4"><div class="modal-content"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold gradient-text">Brand Consolidation</h3><button onclick="this.closest('dialog').close()" class="text-gray-400 hover:text-white text-2xl">&times;</button></div><p class="text-gray-400">Unifying the multi-brand portfolio under a consolidated brand identity enhances scalability, market recognition, and marketing efficiency while reducing operational complexity.</p></div></dialog>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- CTA Section -->
+<section id="cta" class="py-24">
+  <div class="max-w-4xl mx-auto px-6 text-center anim-up">
+    <span class="text-brand text-sm font-semibold uppercase tracking-widest">Next Steps</span>
+    <h2 class="text-3xl md:text-5xl font-black text-white mt-3 mb-6">Explore This Opportunity</h2>
+    <p class="text-gray-400 text-lg mb-10 leading-relaxed">A premier independent multi-clinic audiology platform in Western Canada with 6 consecutive record revenue years, ~28% EBITDA margins, and significant capacity for growth.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#" class="px-10 py-4 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-all transform hover:scale-105 shadow-lg shadow-brand/25">Request Information Memorandum</a>
+      <a href="#financials" class="px-10 py-4 glass text-white font-bold rounded-xl hover:bg-white/10 transition-all">Review Financials</a>
+    </div>
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center">
+        <div class="text-2xl font-black text-white">$7.0M</div>
+        <div class="text-xs text-gray-500 mt-1">FY2025 Revenue</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-black text-white">28%</div>
+        <div class="text-xs text-gray-500 mt-1">EBITDA Margin</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-black text-white">76%</div>
+        <div class="text-xs text-gray-500 mt-1">Gross Margin Avg</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-black text-white">7%</div>
+        <div class="text-xs text-gray-500 mt-1">5-Year CAGR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Disclaimer -->
+<section class="py-12 border-t border-gray-800">
+  <div class="max-w-5xl mx-auto px-6">
+    <p class="text-xs text-gray-600 leading-relaxed text-center">
+      <strong class="text-gray-500">Disclaimer:</strong> This presentation has been prepared by True North M&A for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. The information contained herein is confidential and proprietary. All financial data, projections (marked "F" for forecast and "P" for projected), and forward-looking statements are based on management estimates and assumptions that may not be realized. Past performance is not indicative of future results. Prospective investors should conduct their own due diligence and consult with their financial, legal, and tax advisors before making any investment decision. All figures are in Canadian Dollars (CAD) unless otherwise stated.
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 border-t border-gray-800/50">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <span class="text-sm text-gray-600">Confidential Multi-Clinic Audiology Platform &mdash; Investor Overview</span>
+    <span class="text-sm text-gray-600">Presented by True North M&A</span>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-8 right-8 w-12 h-12 bg-brand text-white rounded-full shadow-lg shadow-brand/30 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-dark z-50">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script>
+// Mobile Menu Toggle
+function toggleMobile() {
+  const m = document.getElementById('mobileMenu');
+  m.classList.toggle('hidden');
+}
+
+// Modal System
+function openModal(id) {
+  const d = document.getElementById(id);
+  if (d) d.showModal();
+}
+document.querySelectorAll('dialog').forEach(d => {
+  d.addEventListener('click', e => { if (e.target === d) d.close(); });
+});
+
+// Sticky Nav
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 100) {
+    nav.classList.add('nav-scrolled');
+  } else {
+    nav.classList.remove('nav-scrolled');
+  }
+  if (window.scrollY > 600) {
+    btn.style.opacity = '1'; btn.style.pointerEvents = 'auto';
+  } else {
+    btn.style.opacity = '0'; btn.style.pointerEvents = 'none';
+  }
+});
+
+// GSAP Animations
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero fade-in
+gsap.from('.hero-fade', {
+  opacity: 0, y: 40, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.3
+});
+
+// Scroll animations
+gsap.utils.toArray('.anim-up').forEach(el => {
+  gsap.from(el, {
+    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+    opacity: 0, y: 50, duration: 0.8, ease: 'power3.out'
+  });
+});
+
+// Counter animations
+function animateCounters() {
+  document.querySelectorAll('.counter').forEach(el => {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const format = el.dataset.format || '';
+
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target, duration: 2, ease: 'power2.out',
+          onUpdate: () => {
+            if (format === 'currency') {
+              el.textContent = prefix + Math.round(obj.val).toLocaleString();
+            } else if (target < 100 && target % 1 !== 0) {
+              el.textContent = prefix + obj.val.toFixed(1) + suffix;
+            } else {
+              el.textContent = prefix + Math.round(obj.val) + suffix;
+            }
+          }
+        });
+      }
+    });
+  });
+}
+animateCounters();
+
+// ========== CHARTS ==========
+
+const chartFont = { family: 'Inter', size: 12 };
+const gridColor = 'rgba(255,255,255,0.06)';
+const tickColor = '#6B7280';
+
+// 1. Dual-Axis Chart: Revenue Bars + EBITDA Margin Line
+const dualCtx = document.getElementById('dualAxisChart').getContext('2d');
+new Chart(dualCtx, {
+  type: 'bar',
+  data: {
+    labels: ['FY2022', 'FY2023', 'FY2024', 'FY2025', 'FY2026F', 'FY2027P'],
+    datasets: [
+      {
+        label: 'Revenue (CAD)',
+        data: [5447162, 6198638, 6790737, 7001054, 7679529, 8063505],
+        backgroundColor: ['#E8533F','#E8533F','#E8533F','#E8533F','rgba(232,83,63,0.4)','rgba(232,83,63,0.4)'],
+        borderColor: ['#E8533F','#E8533F','#E8533F','#E8533F','#E8533F','#E8533F'],
+        borderWidth: 1,
+        borderRadius: 6,
+        yAxisID: 'y',
+        order: 2
+      },
+      {
+        label: 'EBITDA Margin (%)',
+        data: [25.5, 26.5, 30.0, 28.0, 28.5, 26.3],
+        type: 'line',
+        borderColor: '#10B981',
+        backgroundColor: 'rgba(16,185,129,0.1)',
+        pointBackgroundColor: '#10B981',
+        pointBorderColor: '#10B981',
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        borderWidth: 3,
+        tension: 0.3,
+        fill: false,
+        yAxisID: 'y1',
+        order: 1
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { labels: { color: tickColor, font: chartFont, usePointStyle: true, padding: 20 } },
+      tooltip: {
+        backgroundColor: '#1A2235',
+        titleColor: '#fff',
+        bodyColor: '#CBD5E1',
+        borderColor: 'rgba(232,83,63,0.3)',
+        borderWidth: 1,
+        padding: 12,
+        callbacks: {
+          label: ctx => {
+            if (ctx.dataset.yAxisID === 'y') return 'Revenue: $' + ctx.parsed.y.toLocaleString();
+            return 'EBITDA Margin: ' + ctx.parsed.y.toFixed(1) + '%';
+          }
+        }
+      }
+    },
+    scales: {
+      x: { ticks: { color: tickColor, font: chartFont }, grid: { color: gridColor } },
+      y: {
+        position: 'left',
+        ticks: { color: tickColor, font: chartFont, callback: v => '$' + (v/1000000).toFixed(1) + 'M' },
+        grid: { color: gridColor }
+      },
+      y1: {
+        position: 'right',
+        min: 20, max: 35,
+        ticks: { color: '#10B981', font: chartFont, callback: v => v + '%' },
+        grid: { display: false }
+      }
+    }
+  }
+});
+
+// 2. Gross Margin Chart
+const gmCtx = document.getElementById('grossMarginChart').getContext('2d');
+new Chart(gmCtx, {
+  type: 'line',
+  data: {
+    labels: ['FY2022', 'FY2023', 'FY2024', 'FY2025', 'FY2026F', 'FY2027P'],
+    datasets: [{
+      label: 'Gross Margin (%)',
+      data: [76.50, 73.50, 74.80, 77.60, 73.18, 76.00],
+      borderColor: '#F59E0B',
+      backgroundColor: 'rgba(245,158,11,0.08)',
+      pointBackgroundColor: '#F59E0B',
+      pointBorderColor: '#F59E0B',
+      pointRadius: 6,
+      pointHoverRadius: 9,
+      borderWidth: 3,
+      tension: 0.3,
+      fill: true
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { color: tickColor, font: chartFont, usePointStyle: true, padding: 20 } },
+      tooltip: {
+        backgroundColor: '#1A2235',
+        titleColor: '#fff',
+        bodyColor: '#CBD5E1',
+        borderColor: 'rgba(245,158,11,0.3)',
+        borderWidth: 1,
+        padding: 12,
+        callbacks: { label: ctx => 'Gross Margin: ' + ctx.parsed.y.toFixed(2) + '%' }
+      }
+    },
+    scales: {
+      x: { ticks: { color: tickColor, font: chartFont }, grid: { color: gridColor } },
+      y: {
+        min: 70, max: 80,
+        ticks: { color: tickColor, font: chartFont, callback: v => v + '%' },
+        grid: { color: gridColor }
+      }
+    }
+  }
+});
+
+// 3. Demographic Doughnut Chart
+const demoCtx = document.getElementById('demographicChart').getContext('2d');
+new Chart(demoCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Current (~8.1M)', 'Growth to 2030 (+1.2M)', 'Growth to 2040 (+1.2M)'],
+    datasets: [{
+      data: [8.1, 1.2, 1.2],
+      backgroundColor: ['#E8533F', '#FF7A6A', 'rgba(232,83,63,0.35)'],
+      borderColor: '#0A0F1C',
+      borderWidth: 3,
+      hoverOffset: 10
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '60%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: { color: tickColor, font: chartFont, usePointStyle: true, padding: 16 }
+      },
+      tooltip: {
+        backgroundColor: '#1A2235',
+        titleColor: '#fff',
+        bodyColor: '#CBD5E1',
+        borderColor: 'rgba(232,83,63,0.3)',
+        borderWidth: 1,
+        padding: 12,
+        callbacks: { label: ctx => ctx.label + ': ' + ctx.parsed.toFixed(1) + 'M' }
+      }
+    }
+  }
+});
+</script>
+
+<!-- Yajur Analytics Tracking -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+  var SB_URL='https://eflvzsfgoelonfclzrjy.supabase.co',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmbHZ6c2Znb2Vsb25mY2x6cmp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NTYxOTAsImV4cCI6MjA2MzIzMjE5MH0.LCxuFDJuBO8ggiqdWpv5uoOkplKWbcF8z5E_kdpOEWU',PID='ac46787f-febc-4d8e-bf27-0d960d85100b';
+  var sb=null,sid=null,start=Date.now(),maxScroll=0,visitId=null,flushed=false;
+  var milestones=new Set(),sectionTimers={};
+  try{
+    if(window.supabase){
+      sb=window.supabase.createClient(SB_URL,SB_KEY);
+      sid=crypto.randomUUID?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){var r=Math.random()*16|0;return(c==='x'?r:(r&0x3|0x8)).toString(16)});
+      var up=new URLSearchParams(window.location.search);
+      function devType(){var w=window.innerWidth;return w<768?'mobile':w<1024?'tablet':'desktop'}
+      (async function(){
+        var d=await sb.from('page_visits').insert({project_id:PID,session_id:sid,referrer:document.referrer||null,user_agent:navigator.userAgent,device_type:devType(),screen_width:screen.width,screen_height:screen.height,utm_source:up.get('utm_source'),utm_medium:up.get('utm_medium'),utm_campaign:up.get('utm_campaign')}).select('id').single();
+        if(d.data)visitId=d.data.id;
+      })();
+      trk('page_view',location.pathname,{referrer:document.referrer});
+    }
+  }catch(e){console.warn('Analytics init:',e)}
+
+  function trk(type,target,data,section){
+    if(!sb)return;
+    sb.from('page_events').insert({project_id:PID,session_id:sid,event_type:type,event_target:target||null,event_data:data||{},section_id:section||null}).then(function(){});
+  }
+
+  // Scroll depth
+  var st=null;
+  window.addEventListener('scroll',function(){
+    if(st)return;
+    st=setTimeout(function(){
+      st=null;
+      var top=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
+      if(h<=0)return;
+      var pct=Math.round(top/h*100);
+      if(pct>maxScroll)maxScroll=pct;
+      [25,50,75,90,100].forEach(function(m){if(pct>=m&&!milestones.has(m)){milestones.add(m);trk('scroll_milestone',m+'%',{percent:m})}});
+    },250);
+  });
+
+  // Section time tracking
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var id=e.target.id||'unknown';
+      if(!sectionTimers[id])sectionTimers[id]={enter:null,total:0};
+      if(e.isIntersecting){sectionTimers[id].enter=Date.now()}
+      else if(sectionTimers[id].enter){sectionTimers[id].total+=Date.now()-sectionTimers[id].enter;sectionTimers[id].enter=null}
+    });
+  },{threshold:0.3});
+
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('section[id],div[id]').forEach(function(el){if(el.id)obs.observe(el)});
+    var first=document.querySelector('section');
+    if(first&&!first.id){first.id='hero';obs.observe(first)}
+  });
+
+  // Click tracking
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('a,button,[onclick]');
+    if(!el)return;
+    var sec=el.closest('section[id],div[id]');
+    trk('link_click',el.textContent.trim().substring(0,80),{href:el.href||'',tag:el.tagName},sec?sec.id:null);
+  });
+
+  // Flush on exit
+  function flush(){
+    if(flushed||!sb)return;flushed=true;
+    Object.keys(sectionTimers).forEach(function(id){
+      if(sectionTimers[id].enter){sectionTimers[id].total+=Date.now()-sectionTimers[id].enter;sectionTimers[id].enter=null}
+    });
+    Object.entries(sectionTimers).forEach(function(e){
+      if(e[1].total>500)trk('section_view',e[0],{duration_ms:e[1].total,duration_seconds:Math.round(e[1].total/1000)},e[0]);
+    });
+    if(visitId){
+      var dur=Math.round((Date.now()-start)/1000);
+      fetch(SB_URL+'/rest/v1/page_visits?id=eq.'+visitId,{method:'PATCH',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=minimal'},body:JSON.stringify({duration_seconds:dur,max_scroll_percent:maxScroll}),keepalive:true}).catch(function(){});
+    }
+  }
+  window.addEventListener('beforeunload',flush);
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')flush()});
+})();
+</script>
+</body>
+</html>
