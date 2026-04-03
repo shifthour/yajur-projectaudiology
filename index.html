@@ -33,7 +33,7 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #0A0F1C; color: 
 .gradient-border { position: relative; }
 .gradient-border::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(135deg, #E8533F, #FF7A6A); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
 .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,83,63,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
-dialog { border: none; background: transparent; max-width: 90vw; width: 560px; }
+dialog { border: none; background: transparent; max-width: 90vw; width: 560px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; }
 dialog::backdrop { background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); }
 dialog .modal-content { background: #111827; border: 1px solid rgba(232,83,63,0.2); border-radius: 16px; padding: 2rem; color: #E2E8F0; }
 .chart-container { position: relative; width: 100%; }
